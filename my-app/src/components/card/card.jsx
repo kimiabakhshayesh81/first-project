@@ -2,53 +2,44 @@ import React from "react";
 
 const Card = (props) => {
 
-    let data = [
-        {
-            id: 1,
-            nativeName:'الكويت', 
-            population:'4,270,563',
-            region:'Asia',
-            subRegion:'Western Asia',
-            capital:'Kuwait City'}
-    ]
-    console.log(data)
-
-    // {
-    //     props.countries.map((country,index) => {
-    //         return (<div>{country.name.common}</div>)
-    //     })
-    // }
+    let { country } = props;
+    console.log(props.country)
 
     return (
         
-        <div style={{border:"solid red 5px ",padding:"5px",margin:"10px"}}>
+        <div style={{border:"solid 2px ",padding:"5px",margin:"10px"}}>
+            
         <div>
-           {data[0].nativeName}
+           <img src={country.flags.png}></img>
+        </div> 
+
+        <div>
+           {country.nativeName}
         </div>
 
         <div>
-            {data[0].population}
+            {country.population}
         </div>
 
         <div>
-            {data[0].region}
+            {country.region}
         </div>
 
         <div>
-            {data[0].subRegion}
+            {country.subRegion}
         </div>
 
         <div>
-            {data[0].capital}
+            {country.capital}
         </div>
+
+        <div>
+           {country.TopLevelDomain}
+        </div>    
+
         </div>
     )
 }
 
 export default Card;
-
-
-
-
-
 

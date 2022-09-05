@@ -23,10 +23,12 @@ const Body = () => {
         </header>
 
         <input type="text" placeholder={'Search for a country'} />
-        
-        <Card countries={countries} />
+        {
+          countries.map(country => {
+            return <Card country={country} />
+          })
+        }
       </div>
-
       
     );}
 
