@@ -1,0 +1,59 @@
+body{
+  background-color: lightgrey;
+}
+
+.grid-container{
+  width: 30%;
+  background-color:white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: lightgrey;
+}
+
+.grid-items-image{
+  display: flex;
+  flex-direction: row;
+}
+
+.grid-items {
+  width: 74%;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding:2px 20px;
+  font-size: 20px;
+  text-align: center;
+  text-align: start;
+  display: flex;
+  justify-content: start;
+  }
+
+  .detaliesName{
+    font-size: 30px;
+    font-style: unset;
+  }
+
+  #mainNav{
+  display: flex;
+	justify-content: space-between;
+	padding:  0px 10px;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	background-color: white;
+	transition: background 0.4s;
+  }
+
+  #search{
+    background-color: white;
+    margin: 20px;
+    padding: 5px;
+    width: 20%;
+    border: 2px solid white;
+  }
+
+  .cards{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  

@@ -1,6 +1,8 @@
 import Axios from 'axios'
 import React, {useState, useEffect} from "react"
 import Card from '../card';
+import '../styls/style.css';
+
 
 const Body = () => {
     const [countries, setCountries] = useState([]);
@@ -20,14 +22,18 @@ const Body = () => {
           
         <header className="App-header">
         
-        </header>
+        </header><br/><br/><br/><br/>
+        
+        <input id="search" type="text" placeholder={'Search for a country'}/>
 
-        <input type="text" placeholder={'Search for a country'} />
+        <div className="cards">
         {
           countries.map(country => {
             return <Card country={country} />
           })
         }
+        </div>
+        
       </div>
       
     );}
