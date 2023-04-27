@@ -20,16 +20,8 @@ const Card = (props) => {
           <div>{country.region}</div>
         </div>
         <div className="grid-items">
-          <div>Subregion: </div>
-          <div>{country.subregion}</div>
-        </div>
-        <div className="grid-items">
           <div>Capital: </div>
           <div>{country.capital}</div>
-        </div>
-        <div className="grid-items">
-          <div>Top Level Domain: </div>
-          <div>{country.tld}</div>
         </div>
       </div>
     </div>

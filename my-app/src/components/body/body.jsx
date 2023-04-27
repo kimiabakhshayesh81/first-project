@@ -32,20 +32,31 @@ const Body = () => {
     setFinalCountries(finalResponse);
   }
   return (
-    <div>
+    <div className="all">
       <header className="App-header"></header>
       <br />
       <br />
       <br />
       <br />
       <div className="background">
-        <input
-          className="input"
-          id="search"
-          onChange={(event) => Search(event)}
-          type="text"
-          placeholder={"Search for a country"}
-        />
+        <div className="detailes">
+          <input
+            id="search"
+            onChange={(event) => Search(event)}
+            type="text"
+            placeholder={"Search for a country"}
+          />
+
+          <select id="Select">
+            <option value="">Filter by region</option>
+            <option value="Asia">Asia</option>
+            <option value="Africa">Africa</option>
+            <option value="America">America</option>
+            <option value="Europe">Europe</option>
+            <option value="Oceania">Oceania</option>
+          </select>
+        </div>
+
         <div className="cards">
           {finalCountries.map((country) => {
             return <Card country={country} />;

@@ -1,20 +1,38 @@
+/* *{
+  margin: 0px;
+  padding: 0px;
+} */
+
+/* @media (min-width: 640px){
+  .cards{
+    gap: 40px;
+  }
+} */
+
 body {
-  background-color: lightgrey;
+  /* background-color: rgb(231, 225, 225); */
+  background-color: rgba(245, 239, 239, 0.952);
 }
 
 .grid-container {
-  width: auto;  
+  height: 400px;
+  width: 200px;
+
+  /* width: auto;   */
   background-color: white;
-  padding: 20px;
+  /* padding: 20px; */
   display: flex;
   justify-content: center;
   flex-direction: column;
-  background-color: lightgrey;
+  background-color: rgba(245, 239, 239, 0.952);
+  grid-column: span 3/ span 3;
+  
+  
 }
 
 .grid-items-image {
   width: 300px;
-  max-width: 100%;
+  /* max-width: 100%; */
   height: 200px;
   display: flex;
   flex-direction: row;
@@ -22,48 +40,86 @@ body {
 
 .grid-items {
   max-width: 100%;
-  height: auto;
-  /* width: 74%; */
+  /* height: auto; */
   background-color: rgba(255, 255, 255, 0.8);
   padding: 2px 20px;
-  /* font-size: 10vw; */
-  /* font-size: 20px; */
   text-align: center;
-  text-align: start;
+  /* text-align: start; */
   display: flex;
   justify-content: start;
+
+  align-items: end;
+  padding: 2px 20px;
 }
 
-.detaliesName {
+/* .detaliesName {
   font-size: 30px;
   font-style: unset;
-}
+} */
 
 #mainNav {
   display: flex;
   justify-content: space-between;
-  padding: 0px 10px;
-  position: fixed;
+  /* padding: 0px 10px; */
+  padding:  15px;
+  /* margin: 15px; */
   width: 100%;
-  top: 0;
+  top: 0ch;
   background-color: white;
   transition: background 0.4s;
+  /* position: relative; */
+}
+
+.detailes{
+  display: flex;
+  justify-content: space-between;
 }
 
 #search {
   background-color: white;
-  margin: 20px;
-  padding: 5px;
-  width: 20%;
-  height: 25px;
-  border-radius: 5px;
-  box-shadow: 0 0 15px -10px rgba(0, 0, 0, 0.75);
+  margin: 0.10px;
+  padding: 10px;
+  width: 30%;
+  height: 30px;
+  box-shadow: 0 0 15px -10px rgba(228, 220, 220, 0.75);
+  border: none;
+  position:static;
+  align-items: center;
+
+}
+
+/* #filter{
+  background-color: white;
+  margin: 0.10px;
+  padding: 10px;
+  width: 30%;
+  height: 30px;
+  box-shadow: 0 0 15px -10px rgba(228, 220, 220, 0.75);
+  border: none;
+  position:static;
+  align-items: center;
+} */
+
+#Select{
+  background-color: white;
+  margin: 0.10px;
+  padding: 10px;
+  width: 30%;
+  height: 55px;
+  box-shadow: 0 0 15px -10px rgba(228, 220, 220, 0.75);
+  border: none;
+  position:static;
+  align-items: center;
 }
 
 .cards {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  /* flex-wrap: wrap; */
   font-size: 18px;
+  gap: 15px;
+
+grid-template-columns: repeat(12,minmax(0,1fr));
+
 }
 
 .papulation {
@@ -78,6 +134,10 @@ body {
   display: flex;
   justify-content: space-between;
   
+  /* top: 0; */
+  /* width: 100%; */
+  /* z-index: 100; */
+  
 }
 
 .NavDark {
@@ -88,9 +148,15 @@ body {
 }
 
 .background{
-  background-color: #d3d3d3;
+  /* background-color: #d3d3d3; */
+  
   width: 100%;
-  padding: 0 5%;
-  box-shadow: 5 0 15px -10px rgba(0, 0, 0, 0.75);
+  /* padding: 0 5%; */
+  /* box-shadow: 5 0 15px -10px rgba(0, 0, 0, 0.75); */
+}
+
+
+.value{
+  margin-left: 10px;
 }
 
