@@ -110,6 +110,7 @@ body {
   border: none;
   position:static;
   align-items: center;
+  
 }
 
 .cards {
@@ -156,7 +157,5 @@ grid-template-columns: repeat(12,minmax(0,1fr));
 }
 
 
-.value{
-  margin-left: 10px;
-}
+
 

@@ -6,6 +6,7 @@ import "../styls/style.css";
 const Body = () => {
   const [countries, setCountries] = useState([]);
   const [finalCountries, setFinalCountries] = useState([]);
+  const [region, setRegion] = useState("");
 
   useEffect(() => {
     async function getCountries() {
@@ -31,6 +32,17 @@ const Body = () => {
 
     setFinalCountries(finalResponse);
   }
+
+  const handleRegionChange = (event) => {
+    const selectedRegion = event.target.value.toLowerCase();
+    const filteredRegion = countries.filter(
+      (country) =>
+        selectedRegion === "" || country.region.toLowerCase() === selectedRegion
+    );
+    setRegion(selectedRegion);
+    setFinalCountries(filteredRegion);
+  };
+
   return (
     <div className="all">
       <header className="App-header"></header>
@@ -47,13 +59,15 @@ const Body = () => {
             placeholder={"Search for a country"}
           />
 
-          <select id="Select">
-            <option value="">Filter by region</option>
-            <option value="Asia">Asia</option>
-            <option value="Africa">Africa</option>
-            <option value="America">America</option>
-            <option value="Europe">Europe</option>
-            <option value="Oceania">Oceania</option>
+          <select value={region} onChange={handleRegionChange} id="Select">
+            <option value="" disabled selected hidden>
+              Filter by region
+            </option>
+            <option value="asia">Asia</option>
+            <option value="africa">Africa</option>
+            <option value="americas">America</option>
+            <option value="europe">Europe</option>
+            <option value="oceania">Oceania</option>
           </select>
         </div>
 
