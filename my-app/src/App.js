@@ -1,13 +1,12 @@
-import Body from './components/body'
-import Header from './components/header'
 
+import { BrowserRouter } from 'react-router-dom';
+import WebRoutes from './components/router/routes';
 
 const App = () => {
     return (
-      <div className="App">
-        <Header></Header>
-        <Body></Body>
-      </div>
+      <BrowserRouter>
+        <WebRoutes/>
+      </BrowserRouter>
     );}
 
 export default App;

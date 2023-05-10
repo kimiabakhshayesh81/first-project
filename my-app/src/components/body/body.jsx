@@ -2,6 +2,8 @@ import Axios from "axios";
 import React, { useState, useEffect } from "react";
 import Card from "../card";
 import "../styls/style.css";
+import Header from "../header";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [countries, setCountries] = useState([]);
@@ -45,6 +47,7 @@ const Body = () => {
 
   return (
     <div className="all">
+      <Header />
       <header className="App-header"></header>
       <br />
       <br />
@@ -73,7 +76,11 @@ const Body = () => {
 
         <div className="cards">
           {finalCountries.map((country) => {
-            return <Card country={country} />;
+            return (
+              <Link to={`/details/${country.name.common}`}>
+                <Card country={country} />
+              </Link>
+            );
           })}
         </div>
       </div>
