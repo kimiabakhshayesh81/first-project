@@ -1,20 +1,22 @@
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 const SingleCountry = () => {
   const [finalcountry, setfinalcountry] = useState({});
-  const  countryName = useParams();
-
+  const params = useParams();
   useEffect(() => {
     async function getCountries() {
-      const url = await fetch(`https://restcountries.com/v3.1/name/${(Object.values(countryName)).toString()}?fullText=true`);
+      const url = await fetch(
+        `https://restcountries.com/v3.1/name/${params.countryname}?fullText=true`
+      );
       const response = await url.json();
-      setfinalcountry(response); 
+      setfinalcountry(response);
     }
-    console.log((Object.values(countryName)).toString())
+    console.log(params);
     getCountries();
   }, []);
+
+  currencies.Rial.name - Currencies.Toman.name;
 
   return (
     <div>
@@ -23,7 +25,10 @@ const SingleCountry = () => {
       <div>
         <div>
           <span>Native Name: </span>
-          <span>{finalcountry[0]?.name?.nativeName?.eng?.common}, {finalcountry[0]?.name?.nativeName?.urd?.common}</span>
+          <span>
+            {finalcountry[0]?.name?.nativeName?.eng?.common},{" "}
+            {finalcountry[0]?.name?.nativeName?.urd?.common}
+          </span>
         </div>
         <div>
           <span>Population: </span>
@@ -45,17 +50,19 @@ const SingleCountry = () => {
           <span>Top Level Domain: </span>
           <span>{finalcountry[0]?.tld}</span>
         </div>
+
         <div>
           <span>Currencies: </span>
-          <span>{finalcountry[0]?.currencies?.PKR?.name}</span>
+          <span>{finalcountry[0]?.currencies?.PKR?.name}</span> 'Rial, Toman'
         </div>
         <div>
           <span>Languages: </span>
-          <span>{finalcountry[0]?.languages?.eng} , {finalcountry[0]?.languages?.urd}</span>
+          <span>
+            {finalcountry[0]?.languages?.eng} ,{" "}
+            {finalcountry[0]?.languages?.urd}
+          </span>
         </div>
-        <div>
-
-        </div>
+        <div></div>
       </div>
     </div>
   );
