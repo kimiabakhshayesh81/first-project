@@ -16,8 +16,6 @@ const SingleCountry = () => {
     getCountries();
   }, []);
 
-  currencies.Rial.name - Currencies.Toman.name;
-
   return (
     <div>
       <img src={finalcountry[0]?.flags?.png} />
