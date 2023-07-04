@@ -1,18 +1,18 @@
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 const Singleproduct = () => {
   const [finalcountry, setfinalcountry] = useState({});
-  const  countryName = useParams();
-  const nativeName = [];
-
+  const params = useParams();
   useEffect(() => {
     async function getCountries() {
-      const url = await fetch(`https://restcountries.com/v3.1/name/${Object.values(countryName).toString()}?fullText=true`);
+      const url = await fetch(
+        `https://restcountries.com/v3.1/name/${params.countryname}?fullText=true`
+      );
       const response = await url.json();
       setfinalcountry(response);
     }
+    console.log(params);
     getCountries();
   }, [countryName]);
   
@@ -51,6 +51,7 @@ const Singleproduct = () => {
           <span>Top Level Domain: </span>
           <span>{finalcountry[0]?.tld}</span>
         </div>
+
         <div>
           <span>Currencies: </span>
           {finalcountry[0]?.currencies && (
