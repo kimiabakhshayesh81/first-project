@@ -14,64 +14,95 @@ const Singleproduct = () => {
     }
     console.log(params);
     getCountries();
-  }, [countryName]);
-  
+  }, []);
+
+  const getCurrency = (currencies) => {
+    if (!currencies) return "";
+    console.log({ currencies });
+    const altCU = {
+      KRW: { name: "South Korean won", symbol: "₩" },
+      dollar: { name: "South Korean won", symbol: "₩" },
+    };
+    // [({ name: "South Korean won", symbol: "₩" }, dollar: { name: "South Korean won", symbol: "₩" },];
+    const currencyNames = Object.values(currencies).map(
+      (currency) => currency.name
+    );
+    // ['South Korean won','dollar']
+    let str = currencyNames.join(",");
+    return str;
+  };
+  let targetCountry = finalcountry[0];
+  // const countrySpecification = {
+  //   nativeName: {
+  //     label: "Native name:",
+  //     value: Object.values(targetCountry.name?.nativeName).map((nativeName) => (
+  //       <span>{nativeName.common}</span>
+  //     )),
+  //   },
+  //   population: {
+  //     label: "Population",
+  //     value: targetCountry?.population,
+  //   },
+  //   region: {
+  //     label: "Population",
+  //     value: targetCountry?.population,
+  //   },
+  // };
+
   return (
     <div>
-      <img src={finalcountry[0]?.flags?.png} />
-      <h1>{finalcountry[0]?.name?.common}</h1>
+      <img src={targetCountry?.flags?.png} />
+      <h1>{targetCountry?.name?.common}</h1>
+
       <div>
         <div>
           <span>Native name: </span>
-          {finalcountry[0]?.name?.nativeName && (
-          <span>
-          {Object.values(finalcountry[0].name?.nativeName).map((nativeName) => (
-          <span>{nativeName.common}</span>
-          ))} 
-          </span>
-         )}
-        </div> 
+          {targetCountry?.name?.nativeName && (
+            <span>
+              {Object.values(targetCountry.name?.nativeName).map(
+                (nativeName) => (
+                  <span>{nativeName.common}</span>
+                )
+              )}
+            </span>
+          )}
+        </div>
         <div>
           <span>Population: </span>
-          <span>{finalcountry[0]?.population}</span>
+          <span>{targetCountry?.population}</span>
         </div>
         <div>
           <span>Region: </span>
-          <span>{finalcountry[0]?.region}</span>
+          <span>{targetCountry?.region}</span>
         </div>
         <div>
           <span>Sub Region: </span>
-          <span>{finalcountry[0]?.subregion}</span>
+          <span>{targetCountry?.subregion}</span>
         </div>
         <div>
           <span>Capital: </span>
-          <span>{finalcountry[0]?.capital}</span>
+          <span>{targetCountry?.capital}</span>
         </div>
         <div>
           <span>Top Level Domain: </span>
-          <span>{finalcountry[0]?.tld}</span>
+          <span>{targetCountry?.tld}</span>
         </div>
 
         <div>
           <span>Currencies: </span>
-          {finalcountry[0]?.currencies && (
-          <span>
-          {Object.values(finalcountry[0].currencies).map((currency) => (
-          <span>{currency.name}</span>
-          ))} 
-          </span>
-      )}
+
+          <span>{getCurrency(targetCountry?.currencies)}</span>
         </div>
-          <div>
-            <span>language: </span>
-            {finalcountry[0]?.languages && (
+        <div>
+          <span>language: </span>
+          {targetCountry?.languages && (
             <span>
-            {Object.values(finalcountry[0].languages).map((language) => (
-            <span>{language} </span>
-            ))} 
+              {Object.values(targetCountry.languages).map((language) => (
+                <span>{language} </span>
+              ))}
             </span>
           )}
-          </div>  
+        </div>
       </div>
     </div>
   );
