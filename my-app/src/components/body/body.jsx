@@ -49,10 +49,7 @@ const Body = () => {
     <div className="all">
       <Header />
       <header className="App-header"></header>
-      <br />
-      <br />
-      <br />
-      <br />
+
       <div className="background">
         <div className="detailes">
           <input

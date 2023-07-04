@@ -2,29 +2,35 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 
-const SingleCountry = () => {
+const Singleproduct = () => {
   const [finalcountry, setfinalcountry] = useState({});
   const  countryName = useParams();
+  const nativeName = [];
 
   useEffect(() => {
     async function getCountries() {
-      const url = await fetch(`https://restcountries.com/v3.1/name/${(Object.values(countryName)).toString()}?fullText=true`);
+      const url = await fetch(`https://restcountries.com/v3.1/name/${Object.values(countryName).toString()}?fullText=true`);
       const response = await url.json();
-      setfinalcountry(response); 
+      setfinalcountry(response);
     }
-    console.log((Object.values(countryName)).toString())
     getCountries();
-  }, []);
-
+  }, [countryName]);
+  
   return (
     <div>
       <img src={finalcountry[0]?.flags?.png} />
       <h1>{finalcountry[0]?.name?.common}</h1>
       <div>
         <div>
-          <span>Native Name: </span>
-          <span>{finalcountry[0]?.name?.nativeName?.eng?.common}, {finalcountry[0]?.name?.nativeName?.urd?.common}</span>
-        </div>
+          <span>Native name: </span>
+          {finalcountry[0]?.name?.nativeName && (
+          <span>
+          {Object.values(finalcountry[0].name?.nativeName).map((nativeName) => (
+          <span>{nativeName.common}</span>
+          ))} 
+          </span>
+         )}
+        </div> 
         <div>
           <span>Population: </span>
           <span>{finalcountry[0]?.population}</span>
@@ -47,18 +53,27 @@ const SingleCountry = () => {
         </div>
         <div>
           <span>Currencies: </span>
-          <span>{finalcountry[0]?.currencies?.PKR?.name}</span>
+          {finalcountry[0]?.currencies && (
+          <span>
+          {Object.values(finalcountry[0].currencies).map((currency) => (
+          <span>{currency.name}</span>
+          ))} 
+          </span>
+      )}
         </div>
-        <div>
-          <span>Languages: </span>
-          <span>{finalcountry[0]?.languages?.eng} , {finalcountry[0]?.languages?.urd}</span>
-        </div>
-        <div>
-
-        </div>
+          <div>
+            <span>language: </span>
+            {finalcountry[0]?.languages && (
+            <span>
+            {Object.values(finalcountry[0].languages).map((language) => (
+            <span>{language} </span>
+            ))} 
+            </span>
+          )}
+          </div>  
       </div>
     </div>
   );
 };
 
-export default SingleCountry;
+export default Singleproduct;
